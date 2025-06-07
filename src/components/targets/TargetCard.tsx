@@ -1,4 +1,4 @@
-import { Target } from '@/types/target'
+import Target from '@/types/target'
 import AlertBadge from '@/components/ui/AlertBadge'
 import { Link } from 'react-router-dom'
 import { FiExternalLink } from 'react-icons/fi'
@@ -20,9 +20,9 @@ export default function TargetCard({ target }: TargetCardProps) {
               {target.name}
             </Link>
           </h3>
-          <a 
-            href={target.url} 
-            target="_blank" 
+          <a
+            href={target.url}
+            target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-gray-500 hover:text-primary-500 inline-flex items-center"
           >
@@ -31,7 +31,7 @@ export default function TargetCard({ target }: TargetCardProps) {
         </div>
         <AlertBadge status={status} />
       </div>
-      
+
       <div className="mt-4 grid grid-cols-2 gap-4">
         <div>
           <p className="text-sm text-gray-500">Last checked</p>
