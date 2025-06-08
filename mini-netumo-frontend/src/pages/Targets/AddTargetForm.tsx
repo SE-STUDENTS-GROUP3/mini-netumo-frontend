@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { createTarget } from '@/services/targetService'
 import Button from '@/components/ui/Button'
-import Input from '@/components/ui/Button'
+import Input from '@/components/ui/Input'
 import Card from '@/components/ui/Card'
 import { toast } from 'react-toastify'
 

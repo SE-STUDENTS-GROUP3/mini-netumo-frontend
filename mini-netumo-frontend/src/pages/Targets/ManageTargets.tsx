@@ -34,18 +34,18 @@ export default function ManageTargets() {
     <div className="p-4">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Manage Targets</h1>
-        <Button as={Link} to="/targets/add" variant="primary">
-          Add New Target
-        </Button>
+        <Link to="/targets/add">
+          <Button variant="primary">Add New Target</Button>
+        </Link>
       </div>
 
       <div className="grid gap-4">
         {targets?.length === 0 ? (
           <div className="text-center py-8">
             <p className="text-gray-500 mb-4">No targets found</p>
-            <Button as={Link} to="/targets/add" variant="primary">
-              Create Your First Target
-            </Button>
+            <Link to="/targets/add">
+              <Button variant="primary">Create Your First Target</Button>
+            </Link>
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -53,12 +53,12 @@ export default function ManageTargets() {
               <div key={target.id} className="relative">
                 <TargetCard target={target} />
                 <div className="absolute top-2 right-2 space-x-2">
-                  <Button size="sm" variant="danger" onClick={() => handleDelete(target.id)}>
+                  <Button variant="danger" onClick={() => handleDelete(target.id)}>
                     Delete
                   </Button>
-                  <Button as={Link} to={`/targets/edit/${target.id}`} size="sm" variant="outline">
-                    Edit
-                  </Button>
+                  <Link to={`/targets/edit/${target.id}`}>
+                    <Button variant="outline">Edit</Button>
+                  </Link>
                 </div>
               </div>
             ))}

@@ -1,6 +1,6 @@
 import { createContext, useContext, ReactNode, useState, useEffect } from 'react'
 import { fetchTargets } from '@/services/targetService'
-import { Target } from '@/types/target'
+import Target from '@/types/target'
 
 interface TargetsContextType {
   targets: Target[]
@@ -23,7 +23,11 @@ export function TargetsProvider({ children }: { children: ReactNode }) {
       setTargets(data)
       setError(null)
     } catch (err) {
-      setError(err.message)
+      if (err instanceof Error) {
+        setError(err.message)
+      } else {
+        setError(String(err))
+      }
     } finally {
       setLoading(false)
     }

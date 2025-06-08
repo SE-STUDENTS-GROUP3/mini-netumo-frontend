@@ -101,8 +101,10 @@ export default function Dashboard() {
       <div className="space-y-4">
         <div className="flex justify-between items-center">
           <h2 className="text-xl font-semibold">Monitored Targets</h2>
-          <Button asChild variant="primary" size="sm">
-            <Link to="/targets/add">Add Target</Link>
+          <Button variant="primary">
+            <Link to="/targets/add" className="block w-full h-full">
+              Add Target
+            </Link>
           </Button>
         </div>
 

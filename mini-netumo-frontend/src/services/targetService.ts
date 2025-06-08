@@ -1,5 +1,5 @@
 import apiClient from './apiClient'
-import { Target, StatusCheck } from '@/types/target'
+import Target, { StatusCheck } from '@/types/target'
 
 export const fetchTargets = async (): Promise<Target[]> => {
   const response = await apiClient.get('/targets')

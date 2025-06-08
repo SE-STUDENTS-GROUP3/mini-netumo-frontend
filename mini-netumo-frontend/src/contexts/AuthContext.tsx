@@ -12,7 +12,7 @@ interface AuthContextType {
   logout: () => void
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined)
+export const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
@@ -41,19 +41,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     initAuth()
   }, [])
 
-  const login = useCallback(async (token: string) => {
-    try {
-      localStorage.setItem('token', token)
-      const userData = await getProfile()
-      setUser(userData)
-      toast.success('Login successful')
-      navigate('/dashboard')
-    } catch (error) {
-      console.error('Login failed:', error)
-      toast.error('Authentication failed')
-      logout()
-    }
-  }, [navigate])
+  const login = useCallback(
+    async (token: string) => {
+      try {
+        localStorage.setItem('token', token)
+        const userData = await getProfile()
+        setUser(userData)
+        toast.success('Login successful')
+        navigate('/dashboard')
+      } catch (error) {
+        console.error('Login failed:', error)
+        toast.error('Authentication failed')
+        logout()
+      }
+    },
+    [navigate]
+  )
 
   const logout = useCallback(() => {
     localStorage.removeItem('token')
@@ -67,7 +70,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     loading,
     isAuthenticated: !!user,
     login,
-    logout
+    logout,
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

@@ -86,9 +86,9 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: (
-          //<RequireAuth>
-          <DashboardLayout>{/*<Outlet />*/}</DashboardLayout>
-          //</RequireAuth>
+          <RequireAuth>
+            <DashboardLayout>{/*<Outlet />*/}</DashboardLayout>
+          </RequireAuth>
         ),
         children: [
           { index: true, element: lazyWithSuspense(Dashboard) },
