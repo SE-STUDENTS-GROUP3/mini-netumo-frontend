@@ -1,0 +1,16 @@
+export const MONITOR_QUEUE = 'MONITOR_QUEUE';
+
+export const MONITOR_LOG = {
+  CHECK: 'CHECK',
+};
+
+export const ALERT_QUEUE = 'ALERT_QUEUE';
+
+export const DOMAIN_INFO_JOB = {
+  FETCH_AND_SAVE: 'FETCH_AND_SAVE',
+  FETCH_AND_SAVE_RETRY: 'FETCH_AND_SAVE_RETRY',
+};
+
+export const ALERT_JOB = {
+  CHECK_AND_SAVE: 'ALERT_JOB',
+};
