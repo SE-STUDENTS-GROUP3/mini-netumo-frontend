@@ -1,23 +1,23 @@
-import { forwardRef } from "react";
-import { twMerge } from "tailwind-merge";
+import { forwardRef } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "danger" | "success" | "warning" | "outline";
-  loading?: boolean;
+  variant?: 'primary' | 'danger' | 'success' | 'warning' | 'outline'
+  loading?: boolean
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = "primary", loading, children, ...props }, ref) => {
+  ({ className, variant = 'primary', loading, children, ...props }, ref) => {
     const baseClasses =
-      "inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none";
+      'inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none'
 
     const variantClasses = {
-      primary: "bg-primary-500 text-white hover:bg-primary-600",
-      danger: "bg-danger-500 text-white hover:bg-danger-600",
-      success: "bg-success-500 text-white hover:bg-success-600",
-      warning: "bg-warning-500 text-white hover:bg-warning-600",
-      outline: "border border-gray-300 bg-white hover:bg-gray-50",
-    };
+      primary: 'bg-primary-500 text-white hover:bg-primary-600',
+      danger: 'bg-danger-500 text-white hover:bg-danger-600',
+      success: 'bg-success-500 text-white hover:bg-success-600',
+      warning: 'bg-warning-500 text-white hover:bg-warning-600',
+      outline: 'border border-gray-300 bg-white hover:bg-gray-50',
+    }
 
     return (
       <button
@@ -54,10 +54,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           children
         )}
       </button>
-    );
+    )
   }
-);
+)
 
-Button.displayName = "Button";
+Button.displayName = 'Button'
 
-export default Button;
+export default Button

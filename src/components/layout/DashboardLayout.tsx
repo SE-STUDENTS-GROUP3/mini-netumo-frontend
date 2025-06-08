@@ -31,7 +31,7 @@ export default function DashboardLayout() {
       {/* Main content */}
       <div className="lg:pl-64">
         <Header onMenuClick={() => setSidebarOpen(true)} />
-        <main className="py-10">
+        <main className="py-10 pt-20">
           <div className="px-4 sm:px-6 lg:px-8">
             <Outlet />
           </div>

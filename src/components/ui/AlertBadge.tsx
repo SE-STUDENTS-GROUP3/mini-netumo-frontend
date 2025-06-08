@@ -9,7 +9,7 @@ export default function AlertBadge({ status, className }: AlertBadgeProps) {
   const statusMap = {
     up: { text: 'Operational', classes: 'bg-success-100 text-success-800' },
     down: { text: 'Down', classes: 'bg-danger-100 text-danger-800' },
-    warning: { text: 'Warning', classes: 'bg-warning-100 text-warning-800' }
+    warning: { text: 'Warning', classes: 'bg-warning-100 text-warning-800' },
   }
 
   return (

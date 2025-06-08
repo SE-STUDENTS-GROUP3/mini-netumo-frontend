@@ -5,10 +5,10 @@ import DashboardLayout from '@/components/layout/DashboardLayout'
 import LoadingSpinner from '@/components/ui/LoadingSpinner'
 import ErrorPage from '@/components/ErrorPage'
 
-// Define types for your AuthContext
+// Define types of AuthContext
 type AuthContextType = {
   isAuthenticated: boolean
-  isLoading?: boolean // Make optional if not always present
+  isLoading?: boolean
 }
 
 /**
