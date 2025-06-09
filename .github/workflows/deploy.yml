@@ -1,0 +1,49 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      DOCKER_COMPOSE_ENV: docker-compose.env
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push backend
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/mini-netumo-api ./mini-netumo-api
+          docker push ${{ secrets.DOCKER_USERNAME }}/mini-netumo-api
+
+      - name: Build and push frontend
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/mini-netumo-frontend ./mini-netumo-frontend
+          docker push ${{ secrets.DOCKER_USERNAME }}/mini-netumo-frontend
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd ~/app
+            docker pull ${{ secrets.DOCKER_USERNAME }}/mini-netumo-api
+            docker pull ${{ secrets.DOCKER_USERNAME }}/mini-netumo-frontend
+            docker-compose down
+            docker-compose up -d

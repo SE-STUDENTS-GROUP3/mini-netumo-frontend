@@ -78,16 +78,16 @@ services:
     container_name: nginx
     ports:
       # Local HTTP port, change 8080 to 80 in production
-      - "8081:8081"
+      - "80:80"
       # HTTPS port, keep 443 as usual (adjust if needed)
-      - "9443:8443"
+      - "443:443"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      # - /etc/letsencrypt/original_certs:/etc/letsencrypt/original_certs:ro
-      # - /etc/letsencrypt/options-ssl-nginx.conf:/etc/letsencrypt/options-ssl-nginx.conf:ro
-      # - /etc/letsencrypt/ssl-dhparams.pem:/etc/letsencrypt/ssl-dhparams.pem:ro
-      - /home/mcharo/nginx-certs/certs/selfsigned.crt:/etc/letsencrypt/original_certs/fullchain1.pem:ro
-      - /home/mcharo/nginx-certs/certs/selfsigned.key:/etc/letsencrypt/original_certs/privkey1.pem:ro
+      - /etc/letsencrypt/original_certs:/etc/letsencrypt/original_certs:ro
+      - /etc/letsencrypt/options-ssl-nginx.conf:/etc/letsencrypt/options-ssl-nginx.conf:ro
+      - /etc/letsencrypt/ssl-dhparams.pem:/etc/letsencrypt/ssl-dhparams.pem:ro
+      # - /home/mcharo/nginx-certs/certs/selfsigned.crt:/etc/letsencrypt/original_certs/fullchain1.pem:ro
+      # - /home/mcharo/nginx-certs/certs/selfsigned.key:/etc/letsencrypt/original_certs/privkey1.pem:ro
     depends_on:
       - frontend1
       - frontend2
