@@ -66,12 +66,12 @@ services:
     networks:
       - app
 
-  frontend3:
-    build:
-      context: ./mini-netumo-frontend
-    container_name: frontend3
-    networks:
-      - app
+  # frontend3:
+  #   build:
+  #     context: ./mini-netumo-frontend
+  #   container_name: frontend3
+  #   networks:
+  #     - app
 
   nginx:
     image: nginx:latest
@@ -91,7 +91,7 @@ services:
     depends_on:
       - frontend1
       - frontend2
-      - frontend3
+      # - frontend3
       - backend
     networks:
       - app
