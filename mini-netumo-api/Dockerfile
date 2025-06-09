@@ -1,31 +1,38 @@
-# Development stage
-FROM node:20-alpine AS development
-WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-USER node
+ARG IMAGE=node:20-alpine
+FROM ${IMAGE} AS builder
 
-# Build stage
-FROM node:20-alpine AS build
-WORKDIR /usr/src/app
+WORKDIR /app
+
 COPY package*.json ./
-COPY --from=development /usr/src/app/node_modules ./node_modules
+RUN npm install --timeout=600000
+
 COPY . .
+
+# DEVELOPMENT image (for local dev, runs source)
+FROM builder AS dev
+CMD ["npm", "run", "start:dev"]
+
+# PRODUCTION BUILD stage (builds production files)
+FROM builder AS prod-build
 RUN npm run build
+RUN npm prune --production
 
-# --- ADD THESE DEBUGGING LINES HERE ---
-RUN ls -la /usr/src/app/dist/ # List contents of the 'dist' directory after build
-RUN test -f /usr/src/app/dist/main.js && echo "main.js found in build stage" || echo "main.js NOT found in build stage"
-# --- END DEBUGGING LINES ---
+# FINAL PROD IMAGE
+FROM ${IMAGE} AS prod
 
-ENV NODE_ENV production
-RUN npm ci --only=production && npm cache clean --force
+WORKDIR /app
+
+COPY --chown=node:node --from=prod-build /app/dist /app/dist
+COPY --chown=node:node --from=prod-build /app/node_modules /app/node_modules
+
+ENV NODE_ENV=production
+
+EXPOSE 3000
+
+ENTRYPOINT ["node", "dist/src/main.js"]
+
 USER node
 
-# Production stage
-FROM node:20-alpine AS production
-WORKDIR /usr/src/app
-COPY --from=build /usr/src/app/node_modules ./node_modules
-COPY --from=build /usr/src/app/dist ./dist
-CMD ["node", "dist/main.js"]
+
+
+# COPY --chown=node:node --from=prod-build /app/.env /app/.env
