@@ -48,3 +48,58 @@ A production-grade website monitoring solution developed as a capstone project f
 
 ---
 
+## 🧰 Technical Stack
+
+| Component       | Technology                      |
+|----------------|----------------------------------|
+| Frontend       | React.js + Vite + Tailwind CSS  |
+| Backend API    | Node.js + Express               |
+| Database       | PostgreSQL + connection pooling |
+| Job Queue      | BullMQ + Redis                  |
+| Containerization | Docker + Docker Compose        |
+| CI/CD          | GitHub Actions                  |
+| Hosting        | AWS EC2 (Free Tier)             |
+
+---
+
+## 🛠️ Installation
+
+### Prerequisites
+- Docker 20.10+
+- Node.js 18+
+- PostgreSQL 14+
+
+### Development Setup
+
+```bash
+# Clone repository
+git clone https://github.com/SE-STUDENTS-GROUP3/mini-netumo-app.git
+cd mini-netumo-app
+
+# Install dependencies
+npm install
+
+# Copy environment variables
+cp .env.example .env
+
+# Start development containers
+docker-compose -f docker-compose.dev.yml up -d
+```
+
+### Production Deployment
+
+```bash
+docker-compose up -d --build
+```
+
+---
+
+## 📚 API Documentation
+
+The API follows RESTful conventions with JWT-based authentication.
+
+- **Interactive Docs**: [Swagger UI](https://netumo.seranise.co.tz/api/)
+- **OpenAPI Spec**: `/api/openapi.json`
+
+---
+
