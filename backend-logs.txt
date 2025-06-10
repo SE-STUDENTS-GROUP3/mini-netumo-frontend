@@ -1,0 +1,82 @@
+[32m[Nest] 1  - [39m06/10/2025, 1:48:01 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +128ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBullModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDiscoveryModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +7ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBullModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:01 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mBullModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmCoreModule dependencies initialized[39m[38;5;3m +373ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +2ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMonitorModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/api/v1/users}:[39m[38;5;3m +225ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/users, POST} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/users, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/users/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/api/v1/auth}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/auth, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mMonitorController {/api/v1/monitor}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/monitor, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mTargetController {/api/v1/targets}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/targets, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/targets, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/targets/:targetId, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAlertController {/api/v1/alerts}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/api/v1/alerts/:targetId, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +11ms[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:48:02 PM [32m    LOG[39m [38;5;3m[bootstrap] [39m[32mApplication started on port 3000[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:49:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 1:49:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:50:00 PM [32m    LOG[39m [38;5;3m[AlertProcessor] [39m[32mRunning Alert check job...[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:50:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 1:50:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[96m[Nest] 1  - [39m06/10/2025, 1:50:27 PM [96mVERBOSE[39m [38;5;3m[UsersService] [39m[96mUser created successfully: mcharoprofg23@gmail.com[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:51:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 1:51:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:52:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 1:52:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:53:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 1:53:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:54:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 1:54:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:55:00 PM [32m    LOG[39m [38;5;3m[AlertProcessor] [39m[32mRunning Alert check job...[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:55:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 1:55:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:56:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 1:56:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:57:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 1:57:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:58:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 1:58:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 1:59:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 1:59:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 2:00:00 PM [32m    LOG[39m [38;5;3m[AlertProcessor] [39m[32mRunning Alert check job...[39m
+[32m[Nest] 1  - [39m06/10/2025, 2:00:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 2:00:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 2:01:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 2:01:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 2:02:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 2:02:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 2:03:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 2:03:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 2:04:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 2:04:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 2:05:00 PM [32m    LOG[39m [38;5;3m[AlertProcessor] [39m[32mRunning Alert check job...[39m
+[32m[Nest] 1  - [39m06/10/2025, 2:05:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 2:05:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 2:06:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 2:06:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 2:07:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 2:07:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 2:08:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 2:08:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 2:09:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 2:09:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m
+[32m[Nest] 1  - [39m06/10/2025, 2:10:00 PM [32m    LOG[39m [38;5;3m[AlertProcessor] [39m[32mRunning Alert check job...[39m
+[32m[Nest] 1  - [39m06/10/2025, 2:10:00 PM [32m    LOG[39m [38;5;3m[MonitorProcessor] [39m[32mMonitor check triggered.[39m
+[96m[Nest] 1  - [39m06/10/2025, 2:10:00 PM [96mVERBOSE[39m [38;5;3m[MonitorProcessor] [39m[96mFound 0 active targets to check.[39m

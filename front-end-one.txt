@@ -1,0 +1,105 @@
+ INFO  Accepting connections at http://localhost:5173
+ HTTP  6/10/2025 1:49:09 PM 172.18.0.7 GET /
+ HTTP  6/10/2025 1:49:09 PM 172.18.0.7 Returned 200 in 29 ms
+ HTTP  6/10/2025 1:49:11 PM 172.18.0.7 GET /assets/index-b97c9f74.css
+ HTTP  6/10/2025 1:49:11 PM 172.18.0.7 Returned 304 in 7 ms
+ HTTP  6/10/2025 1:49:15 PM 172.18.0.7 GET /assets/Input-67e313af.js
+ HTTP  6/10/2025 1:49:15 PM 172.18.0.7 Returned 200 in 4 ms
+ HTTP  6/10/2025 1:49:16 PM 172.18.0.7 GET /favicon.ico
+ HTTP  6/10/2025 1:49:16 PM 172.18.0.7 Returned 200 in 2 ms
+ HTTP  6/10/2025 1:49:23 PM 172.18.0.7 GET /
+ HTTP  6/10/2025 1:49:23 PM 172.18.0.7 Returned 200 in 1 ms
+ HTTP  6/10/2025 1:49:44 PM 172.18.0.7 GET /
+ HTTP  6/10/2025 1:49:44 PM 172.18.0.7 Returned 200 in 2 ms
+ HTTP  6/10/2025 1:49:45 PM 172.18.0.7 GET /assets/index-b97c9f74.css
+ HTTP  6/10/2025 1:49:45 PM 172.18.0.7 Returned 200 in 1 ms
+ HTTP  6/10/2025 1:49:47 PM 172.18.0.7 GET /assets/Input-67e313af.js
+ HTTP  6/10/2025 1:49:47 PM 172.18.0.7 Returned 200 in 2 ms
+ HTTP  6/10/2025 1:49:47 PM 172.18.0.7 GET /favicon.ico
+ HTTP  6/10/2025 1:49:47 PM 172.18.0.7 Returned 200 in 1 ms
+ HTTP  6/10/2025 1:49:49 PM 172.18.0.7 GET /assets/index-dfb2a7d4.js
+ HTTP  6/10/2025 1:49:49 PM 172.18.0.7 Returned 304 in 6 ms
+ HTTP  6/10/2025 1:49:49 PM 172.18.0.7 GET /assets/Button-d1ac32ff.js
+ HTTP  6/10/2025 1:49:49 PM 172.18.0.7 GET /assets/Login-cecc8d8d.js
+ HTTP  6/10/2025 1:49:49 PM 172.18.0.7 Returned 304 in 5 ms
+ HTTP  6/10/2025 1:49:49 PM 172.18.0.7 Returned 304 in 4 ms
+ HTTP  6/10/2025 1:49:50 PM 172.18.0.7 GET /favicon.ico
+ HTTP  6/10/2025 1:49:50 PM 172.18.0.7 Returned 304 in 1 ms
+ HTTP  6/10/2025 1:49:53 PM 172.18.0.7 GET /favicon.ico
+ HTTP  6/10/2025 1:49:53 PM 172.18.0.7 Returned 304 in 1 ms
+ HTTP  6/10/2025 1:50:09 PM 172.18.0.7 GET /auth/login
+ HTTP  6/10/2025 1:50:09 PM 172.18.0.7 Returned 200 in 1 ms
+ HTTP  6/10/2025 1:50:11 PM 172.18.0.7 GET /auth/login
+ HTTP  6/10/2025 1:50:11 PM 172.18.0.7 Returned 200 in 1 ms
+ HTTP  6/10/2025 1:50:11 PM 172.18.0.7 GET /assets/index-b97c9f74.css
+ HTTP  6/10/2025 1:50:11 PM 172.18.0.7 Returned 304 in 2 ms
+ HTTP  6/10/2025 1:50:12 PM 172.18.0.7 GET /assets/Login-cecc8d8d.js
+ HTTP  6/10/2025 1:50:12 PM 172.18.0.7 Returned 304 in 1 ms
+ HTTP  6/10/2025 1:50:12 PM 172.18.0.7 GET /favicon.ico
+ HTTP  6/10/2025 1:50:12 PM 172.18.0.7 Returned 304 in 2 ms
+ HTTP  6/10/2025 1:50:39 PM 172.18.0.7 GET /favicon.ico
+ HTTP  6/10/2025 1:50:39 PM 172.18.0.7 Returned 304 in 0 ms
+ HTTP  6/10/2025 1:50:42 PM 172.18.0.7 GET /assets/index-b97c9f74.css
+ HTTP  6/10/2025 1:50:42 PM 172.18.0.7 Returned 304 in 1 ms
+ HTTP  6/10/2025 1:50:44 PM 172.18.0.7 GET /assets/Input-67e313af.js
+ HTTP  6/10/2025 1:50:44 PM 172.18.0.7 Returned 304 in 3 ms
+ HTTP  6/10/2025 1:50:44 PM 172.18.0.7 GET /assets/Login-cecc8d8d.js
+ HTTP  6/10/2025 1:50:44 PM 172.18.0.7 Returned 304 in 3 ms
+ HTTP  6/10/2025 1:51:17 PM 172.18.0.7 GET /favicon.ico
+ HTTP  6/10/2025 1:51:17 PM 172.18.0.7 Returned 304 in 2 ms
+ HTTP  6/10/2025 1:51:18 PM 172.18.0.7 GET /assets/index-dfb2a7d4.js
+ HTTP  6/10/2025 1:51:18 PM 172.18.0.7 Returned 304 in 1 ms
+ HTTP  6/10/2025 1:51:18 PM 172.18.0.7 GET /assets/Input-67e313af.js
+ HTTP  6/10/2025 1:51:18 PM 172.18.0.7 GET /assets/Button-d1ac32ff.js
+ HTTP  6/10/2025 1:51:18 PM 172.18.0.7 Returned 304 in 2 ms
+ HTTP  6/10/2025 1:51:18 PM 172.18.0.7 Returned 304 in 2 ms
+ HTTP  6/10/2025 1:51:31 PM 172.18.0.7 GET /favicon.ico
+ HTTP  6/10/2025 1:51:31 PM 172.18.0.7 Returned 304 in 1 ms
+ HTTP  6/10/2025 1:51:32 PM 172.18.0.7 GET /assets/index-dfb2a7d4.js
+ HTTP  6/10/2025 1:51:32 PM 172.18.0.7 Returned 304 in 1 ms
+ HTTP  6/10/2025 1:51:33 PM 172.18.0.7 GET /assets/Input-67e313af.js
+ HTTP  6/10/2025 1:51:33 PM 172.18.0.7 Returned 304 in 3 ms
+ HTTP  6/10/2025 1:51:33 PM 172.18.0.7 GET /assets/Login-cecc8d8d.js
+ HTTP  6/10/2025 1:51:33 PM 172.18.0.7 Returned 304 in 1 ms
+ HTTP  6/10/2025 1:51:44 PM 172.18.0.7 HEAD /
+ HTTP  6/10/2025 1:51:44 PM 172.18.0.7 Returned 200 in 1 ms
+ HTTP  6/10/2025 1:51:45 PM 172.18.0.7 GET /auth/login
+ HTTP  6/10/2025 1:51:45 PM 172.18.0.7 Returned 304 in 1 ms
+ HTTP  6/10/2025 1:51:45 PM 172.18.0.7 GET /assets/index-dfb2a7d4.js
+ HTTP  6/10/2025 1:51:45 PM 172.18.0.7 Returned 200 in 1 ms
+ HTTP  6/10/2025 1:51:46 PM 172.18.0.7 GET /assets/index-b97c9f74.css
+ HTTP  6/10/2025 1:51:46 PM 172.18.0.7 Returned 304 in 1 ms
+ HTTP  6/10/2025 1:51:47 PM 172.18.0.7 GET /assets/index-dfb2a7d4.js
+ HTTP  6/10/2025 1:51:47 PM 172.18.0.7 Returned 304 in 3 ms
+ HTTP  6/10/2025 1:51:47 PM 172.18.0.7 GET /assets/Button-d1ac32ff.js
+ HTTP  6/10/2025 1:51:47 PM 172.18.0.7 GET /assets/Login-cecc8d8d.js
+ HTTP  6/10/2025 1:51:47 PM 172.18.0.7 Returned 304 in 4 ms
+ HTTP  6/10/2025 1:51:47 PM 172.18.0.7 Returned 304 in 2 ms
+ HTTP  6/10/2025 1:51:48 PM 172.18.0.7 GET /assets/Login-cecc8d8d.js
+ HTTP  6/10/2025 1:51:48 PM 172.18.0.7 Returned 304 in 2 ms
+ HTTP  6/10/2025 1:51:48 PM 172.18.0.7 GET /assets/Button-d1ac32ff.js
+ HTTP  6/10/2025 1:51:48 PM 172.18.0.7 Returned 304 in 1 ms
+ HTTP  6/10/2025 2:03:07 PM 172.18.0.7 GET /
+ HTTP  6/10/2025 2:03:07 PM 172.18.0.7 Returned 200 in 1 ms
+ HTTP  6/10/2025 2:03:08 PM 172.18.0.7 GET /assets/index-b97c9f74.css
+ HTTP  6/10/2025 2:03:08 PM 172.18.0.7 Returned 200 in 1 ms
+ HTTP  6/10/2025 2:03:10 PM 172.18.0.7 GET /auth/login
+ HTTP  6/10/2025 2:03:10 PM 172.18.0.7 Returned 200 in 1 ms
+ HTTP  6/10/2025 2:03:10 PM 172.18.0.7 GET /assets/index-b97c9f74.css
+ HTTP  6/10/2025 2:03:10 PM 172.18.0.7 Returned 304 in 1 ms
+ HTTP  6/10/2025 2:03:11 PM 172.18.0.7 GET /assets/Button-d1ac32ff.js
+ HTTP  6/10/2025 2:03:11 PM 172.18.0.7 Returned 200 in 1 ms
+ HTTP  6/10/2025 2:03:12 PM 172.18.0.7 GET /assets/Login-cecc8d8d.js
+ HTTP  6/10/2025 2:03:12 PM 172.18.0.7 Returned 304 in 1 ms
+ HTTP  6/10/2025 2:03:12 PM 172.18.0.7 GET /assets/Button-d1ac32ff.js
+ HTTP  6/10/2025 2:03:12 PM 172.18.0.7 Returned 304 in 1 ms
+ HTTP  6/10/2025 2:03:18 PM 172.18.0.7 GET /assets/Register-603fe715.js
+ HTTP  6/10/2025 2:03:18 PM 172.18.0.7 Returned 200 in 2 ms
+ HTTP  6/10/2025 2:11:28 PM 172.18.0.7 GET /
+ HTTP  6/10/2025 2:11:28 PM 172.18.0.7 Returned 304 in 1 ms
+ HTTP  6/10/2025 2:11:28 PM 172.18.0.7 GET /assets/index-b97c9f74.css
+ HTTP  6/10/2025 2:11:28 PM 172.18.0.7 Returned 304 in 2 ms
+ HTTP  6/10/2025 2:11:29 PM 172.18.0.7 GET /assets/Button-d1ac32ff.js
+ HTTP  6/10/2025 2:11:29 PM 172.18.0.7 Returned 304 in 2 ms
+ HTTP  6/10/2025 2:11:29 PM 172.18.0.7 GET /favicon.ico
+ HTTP  6/10/2025 2:11:29 PM 172.18.0.7 Returned 304 in 1 ms
