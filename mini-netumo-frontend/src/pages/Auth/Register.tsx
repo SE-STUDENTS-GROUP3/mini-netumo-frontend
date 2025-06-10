@@ -3,43 +3,58 @@ import { Link, useNavigate } from 'react-router-dom'
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
 import { toast } from 'react-toastify'
+import { register as registerUser } from '@/services/authService'
 
 interface FormData {
   username: string
   email: string
+  phoneNumber: string
   password: string
   confirmPassword: string
 }
 
 export default function Register() {
   const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<FormData>()
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
     if (data.password !== data.confirmPassword) {
       toast.error("Passwords don't match")
       return
     }
-    // Replace this with your register API call
-    toast.success('Registered successfully')
-    navigate('/auth/login')
+
+    try {
+      await registerUser({
+        name: data.username,
+        email: data.email,
+        password: data.password,
+        phoneNumber: data.phoneNumber, // Placeholder or collect this in form
+      })
+
+      toast.success('Registered successfully')
+      navigate('/auth/login')
+    } catch (error) {
+      console.error('Registration failed:', error)
+      toast.error('Registration failed. Please try again.')
+    }
   }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 px-4 py-6 sm:px-6 lg:px-8">
       <div className="w-full max-w-xs">
         <div className="bg-white rounded-xl shadow-md overflow-hidden">
-          {/* Header - Made more compact */}
+          {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-3 text-center">
             <h1 className="text-lg font-bold text-white">Create an Account</h1>
             <p className="mt-1 text-blue-100 text-xs">Join us and start your journey</p>
           </div>
 
-          {/* Form Section - Reduced vertical spacing */}
+          {/* Form */}
           <div className="p-4 space-y-3">
             <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
               <Input
@@ -66,6 +81,22 @@ export default function Register() {
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                     message: 'Invalid email address',
+                  },
+                })}
+              />
+
+              <Input
+                placeholder="Phone Number"
+                id="phoneNumber"
+                type="tel"
+                required
+                error={errors.phoneNumber?.message}
+                className="text-sm py-1.5"
+                {...register('phoneNumber', {
+                  required: 'Phone number is required',
+                  pattern: {
+                    value: /^\+255\d{9}$/,
+                    message: 'Phone number must be in format +255XXXXXXXXX',
                   },
                 })}
               />
@@ -105,7 +136,7 @@ export default function Register() {
               </Button>
             </form>
 
-            {/* Divider - More compact */}
+            {/* Divider */}
             <div className="relative my-2">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-200" />
@@ -115,7 +146,7 @@ export default function Register() {
               </div>
             </div>
 
-            {/* Socials - Smaller icons */}
+            {/* Social buttons */}
             <div className="flex justify-center gap-2">
               <button
                 type="button"
@@ -139,7 +170,7 @@ export default function Register() {
             </div>
           </div>
 
-          {/* Footer - More compact */}
+          {/* Footer */}
           <div className="px-4 py-2 bg-gray-50 text-center text-xs">
             <p className="text-gray-600">
               Already have an account?{' '}

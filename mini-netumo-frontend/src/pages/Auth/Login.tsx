@@ -1,9 +1,10 @@
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
-import { login } from '@/services/authService'
+import { login as loginApi } from '@/services/authService'
 import { useAuth } from '@/contexts/AuthContext'
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
+import { toast } from 'react-toastify'
 
 interface LoginFormData {
   email: string
@@ -13,6 +14,7 @@ interface LoginFormData {
 export default function Login() {
   const { login: authLogin } = useAuth()
   const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
@@ -21,11 +23,20 @@ export default function Login() {
 
   const onSubmit = async (data: LoginFormData) => {
     try {
-      const { token } = await login(data)
-      authLogin(token)
-      navigate('/dashboard')
-    } catch (error) {
-      console.error(error)
+      // Authenticate via API
+      const { access, refresh } = await loginApi(data)
+
+      // Store tokens
+      authLogin({ access, refresh })
+
+      // Redirect + toast
+      navigate('/')
+      toast.success('Login successfully')
+    } catch (error: any) {
+      console.error('Login error:', error)
+      toast.error(
+        error.response?.data?.message || error.message || 'Login failed. Please try again.'
+      )
     }
   }
 

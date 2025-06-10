@@ -8,7 +8,7 @@ interface AuthContextType {
   user: User | null
   loading: boolean
   isAuthenticated: boolean
-  login: (token: string) => Promise<void>
+  login: (tokens: { access: string; refresh: string }) => Promise<void>
   logout: () => void
 }
 
@@ -33,6 +33,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       } catch (error) {
         console.error('Auth initialization failed:', error)
         localStorage.removeItem('token')
+        localStorage.removeItem('refresh')
       } finally {
         setLoading(false)
       }
@@ -42,13 +43,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const login = useCallback(
-    async (token: string) => {
+    async (tokens: { access: string; refresh: string }) => {
       try {
-        localStorage.setItem('token', token)
+        localStorage.setItem('token', tokens.access)
+        localStorage.setItem('refresh', tokens.refresh)
         const userData = await getProfile()
         setUser(userData)
         toast.success('Login successful')
-        navigate('/dashboard')
+        navigate('/')
       } catch (error) {
         console.error('Login failed:', error)
         toast.error('Authentication failed')
@@ -60,12 +62,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = useCallback(() => {
     localStorage.removeItem('token')
+    localStorage.removeItem('refresh')
     setUser(null)
     navigate('/auth/login')
     toast.info('Logged out successfully')
   }, [navigate])
 
-  const value = {
+  const value: AuthContextType = {
     user,
     loading,
     isAuthenticated: !!user,
