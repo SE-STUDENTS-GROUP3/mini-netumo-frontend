@@ -103,3 +103,68 @@ The API follows RESTful conventions with JWT-based authentication.
 
 ---
 
+## 🏗️ System Architecture
+
+![Architecture Diagram](https://docs/architecture.png)
+
+### Components
+1. **Load Balancer**: Nginx reverse proxy  
+2. **Frontend**: React.js (2–3 instances)  
+3. **API Service**: Express.js application  
+4. **Worker**: Monitoring job processor  
+5. **Database**: PostgreSQL with daily backups  
+6. **Redis**: Job queue and caching system
+
+---
+
+## 🤝 Team Contribution
+
+| Name               | Role               | Key Contributions              |
+|--------------------|--------------------|--------------------------------|
+| Godfrey Mcharo     | Backend Lead       | API development, JWT auth      |
+| Layson Ndenza      | Frontend Lead      | Dashboard UI, chart integration|
+| David Masao        | DevOps Engineer    | Docker setup, CI/CD pipeline   |
+| Kulwa Borniface    | QA Engineer        | Testing, monitoring logic      |
+| Felister Kapaya    | Documentation Lead | API docs, system documentation |
+
+---
+
+## 📊 Monitoring Metrics
+
+Metrics include:
+- Response time per request
+- Uptime/downtime duration
+- SSL and domain expiration status
+
+---
+
+## 🔒 Security Features
+
+- JWT authentication + refresh tokens
+- Role-based access control (RBAC)
+- Rate-limited API endpoints
+- Environment-based secret management
+- Automated secret rotation
+
+---
+
+## 📦 CI/CD Pipeline
+
+- Continuous integration via GitHub Actions
+- Automated container builds and deployment
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](https://license/) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- **Dr. Goodiel Moshi** – Project Supervisor  
+- **Netumo** – Project inspiration  
+- **University of Dodoma – CIVE Faculty**
+
+---
