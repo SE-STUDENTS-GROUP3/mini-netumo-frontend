@@ -1,6 +1,6 @@
 # 🖥️ Mini-Netumo Monitoring System
 
-![Mini-Netumo Login Preview](docs/login-preview.jpg)
+![Mini-Netumo Login Preview](docs/login-preview.png)
 ![Mini-Netumo Dashboard Preview](docs/dashboard-preview.png)
 
 A production-grade website monitoring solution developed as a capstone project for the University of Dodoma's Application Deployment and Management course.
