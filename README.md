@@ -1,6 +1,6 @@
 # 🖥️ Mini-Netumo Monitoring System
 
-![Mini-Netumo Dashboard Preview](https://netumo.seranise.co.tz/static/media/logo.3f3f3f3f.svg)
+![Mini-Netumo Dashboard Preview](docs/dashboard-preview.png)
 
 A production-grade website monitoring solution developed as a capstone project for the University of Dodoma's Application Deployment and Management course.
 
@@ -33,15 +33,18 @@ A production-grade website monitoring solution developed as a capstone project f
 ## 🚀 Features
 
 ### Core Monitoring
+
 - 5-minute interval HTTP/HTTPS checks
 - Status logging with latency tracking
 - Uptime/downtime history with visual indicators
 
 ### Security Monitoring
+
 - SSL certificate and domain expiry checks
 - 14-day alert threshold for expiring certs or domains
 
 ### Alert System
+
 - Email notifications via Mailtrap/SES
 - Webhook support (Slack, Discord)
 - Multi-channel critical alerting
@@ -50,21 +53,22 @@ A production-grade website monitoring solution developed as a capstone project f
 
 ## 🧰 Technical Stack
 
-| Component       | Technology                      |
-|----------------|----------------------------------|
-| Frontend       | React.js + Vite + Tailwind CSS  |
-| Backend API    | Node.js + Express               |
-| Database       | PostgreSQL + connection pooling |
-| Job Queue      | BullMQ + Redis                  |
-| Containerization | Docker + Docker Compose        |
-| CI/CD          | GitHub Actions                  |
-| Hosting        | AWS EC2 (Free Tier)             |
+| Component        | Technology                      |
+| ---------------- | ------------------------------- |
+| Frontend         | React.js + Vite + Tailwind CSS  |
+| Backend API      | Node.js + Express               |
+| Database         | PostgreSQL + connection pooling |
+| Job Queue        | BullMQ + Redis                  |
+| Containerization | Docker + Docker Compose         |
+| CI/CD            | GitHub Actions                  |
+| Hosting          | AWS EC2 (Free Tier)             |
 
 ---
 
 ## 🛠️ Installation
 
 ### Prerequisites
+
 - Docker 20.10+
 - Node.js 18+
 - PostgreSQL 14+
@@ -108,30 +112,32 @@ The API follows RESTful conventions with JWT-based authentication.
 ![Architecture Diagram](https://docs/architecture.png)
 
 ### Components
-1. **Load Balancer**: Nginx reverse proxy  
-2. **Frontend**: React.js (2–3 instances)  
-3. **API Service**: Express.js application  
-4. **Worker**: Monitoring job processor  
-5. **Database**: PostgreSQL with daily backups  
+
+1. **Load Balancer**: Nginx reverse proxy
+2. **Frontend**: React.js (2–3 instances)
+3. **API Service**: Express.js application
+4. **Worker**: Monitoring job processor
+5. **Database**: PostgreSQL with daily backups
 6. **Redis**: Job queue and caching system
 
 ---
 
 ## 🤝 Team Contribution
 
-| Name               | Role               | Key Contributions              |
-|--------------------|--------------------|--------------------------------|
-| Godfrey Mcharo     | Backend Lead       | API development, JWT auth      |
-| Layson Ndenza      | Frontend Lead      | Dashboard UI, chart integration|
-| David Masao        | DevOps Engineer    | Docker setup, CI/CD pipeline   |
-| Kulwa Borniface    | QA Engineer        | Testing, monitoring logic      |
-| Felister Kapaya    | Documentation Lead | API docs, system documentation |
+| Name            | Role               | Key Contributions               |
+| --------------- | ------------------ | ------------------------------- |
+| Godfrey Mcharo  | Backend Lead       | API development, JWT auth       |
+| Layson Ndenza   | Frontend Lead      | Dashboard UI, chart integration |
+| David Masao     | DevOps Engineer    | Docker setup, CI/CD pipeline    |
+| Kulwa Borniface | QA Engineer        | Testing, monitoring logic       |
+| Felister Kapaya | Documentation Lead | API docs, system documentation  |
 
 ---
 
 ## 📊 Monitoring Metrics
 
 Metrics include:
+
 - Response time per request
 - Uptime/downtime duration
 - SSL and domain expiration status
@@ -163,8 +169,8 @@ This project is licensed under the MIT License. See the [LICENSE](https://licens
 
 ## 🙏 Acknowledgments
 
-- **Dr. Goodiel Moshi** – Project Supervisor  
-- **Netumo** – Project inspiration  
+- **Dr. Goodiel Moshi** – Project Supervisor
+- **Netumo** – Project inspiration
 - **University of Dodoma – CIVE Faculty**
 
 ---
