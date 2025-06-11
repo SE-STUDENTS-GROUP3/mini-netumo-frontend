@@ -81,7 +81,7 @@ export default function Dashboard() {
             <FiClock className="text-blue-500 text-xl" />
             <div>
               <h3 className="text-lg font-semibold">{dashboardData.stats.avgLatency}ms</h3>
-              <p className="text-sm text-gray-600">Avg Latency</p>
+              <p className="text-sm text-gray-600">Average Latency</p>
             </div>
           </div>
         </div>
