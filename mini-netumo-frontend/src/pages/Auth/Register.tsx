@@ -51,7 +51,7 @@ export default function Register() {
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 to-indigo-700 p-3 text-center">
             <h1 className="text-lg font-bold text-white">Create an Account</h1>
-            <p className="mt-1 text-blue-100 text-xs">Join us and start your journey</p>
+            <p className="mt-1 text-blue-100 text-xs">Join us now</p>
           </div>
 
           {/* Form */}
