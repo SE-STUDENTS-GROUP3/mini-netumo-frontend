@@ -30,7 +30,7 @@ jobs:
           git clean -fd
 
           echo "Pulling latest changes..."
-          git pull origin development
+          git pull origin develop
 
           echo "Stopping all containers..."
           docker stop $(docker ps -aq) || true
