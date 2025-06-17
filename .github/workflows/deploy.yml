@@ -1,81 +1,72 @@
 name: Deploy Docker Compose to EC2
-
 on:
   push:
     branches:
       - develop
-
 jobs:
   deploy:
     name: Deploy to EC2
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Start SSH agent
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
-
-      - name: Deploy to EC2 via SSH with full cleanup and debug
-        run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
-            set -e
-
-            echo "STEP 1: Switching to app directory..."
-            cd /home/ubuntu/mini-netumo-frontend
-            echo "✔ STEP 1 complete"
-
-            echo "STEP 2: Cleaning working directory..."
-            git reset --hard
-            git clean -fd
-            echo "✔ STEP 2 complete"
-
-            echo "STEP 3: Pulling latest code..."
-            git pull origin develop
-            echo "✔ STEP 3 complete"
-
-            echo "STEP 4: Stopping all containers..."
-            docker stop \$(docker ps -aq) || true
-            echo "✔ STEP 4 complete"
-
-            echo "STEP 5: Removing all containers..."
-            docker rm \$(docker ps -aq) || true
-            echo "✔ STEP 5 complete"
-
-            echo "STEP 6: Removing all images..."
-            docker rmi -f \$(docker images -aq) || true
-            echo "✔ STEP 6 complete"
-
-            echo "STEP 7: Removing all volumes..."
-            docker volume rm \$(docker volume ls -q) || true
-            echo "✔ STEP 7 complete"
-
-            echo "STEP 8: System prune..."
-            docker system prune -a --volumes -f || true
-            echo "✔ STEP 8 complete"
-
-            echo "STEP 9: Building containers..."
-            docker compose --env-file docker-compose.env build --no-cache
-            echo "✔ STEP 9 complete"
-
-            echo "STEP 10: Starting services..."
-            docker compose --env-file docker-compose.env up -d
-            echo "✔ STEP 10 complete"
-
-            echo "STEP 11: Checking containers..."
-            docker ps -a
-
-            echo "STEP 12: Showing logs (backend)..."
-            docker logs backend || echo "No backend logs"
-
-            echo "STEP 13: Showing logs (frontend1)..."
-            docker logs frontend1 || echo "No frontend1 logs"
-
-            echo "STEP 14: Showing logs (nginx)..."
-            docker logs nginx || echo "No nginx logs"
-
-            echo " Deployment complete."
-          EOF
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Start SSH agent
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+    - name: Deploy to EC2 via SSH with full cleanup
+      run: |
+        ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
+          echo "Changing to app directory..."
+          cd /home/ubuntu/mini-netumo-frontend || { echo "Failed to change directory"; exit 1; }
+          
+          echo "Cleaning working directory..."
+          git reset --hard || { echo "git reset failed"; exit 1; }
+          git clean -fd || { echo "git clean failed"; exit 1; }
+          
+          echo "Pulling latest changes..."
+          git pull origin develop || { echo "git pull failed"; exit 1; }
+          
+          # Check for docker-compose.env existence
+          echo "Checking for docker-compose.env file..."
+          ls -la docker-compose.env || { echo "docker-compose.env not found!"; exit 1; }
+          
+          echo "Stopping all containers..."
+          docker stop $(docker ps -aq) || true
+          echo "Removing all containers..."
+          docker rm $(docker ps -aq) || true
+          echo "Removing all images..."
+          docker rmi -f $(docker images -aq) || true
+          echo "Removing all volumes..."
+          docker volume rm $(docker volume ls -q) || true
+          echo "Pruning system (remove dangling images, containers, volumes)..."
+          docker system prune -a --volumes -f || true
+          
+          echo "Building fresh containers..."
+          # Capture build output and check exit code
+          docker compose --env-file docker-compose.env build --no-cache
+          BUILD_EXIT_CODE=$?
+          if [ $BUILD_EXIT_CODE -ne 0 ]; then
+            echo "Docker Compose build failed with exit code $BUILD_EXIT_CODE."
+            exit 1
+          fi
+          echo "Docker Compose build completed successfully."
+          
+          echo "Starting services..."
+          # Capture up output and check exit code
+          docker compose --env-file docker-compose.env up -d
+          UP_EXIT_CODE=$?
+          if [ $UP_EXIT_CODE -ne 0 ]; then
+            echo "Docker Compose up -d failed with exit code $UP_EXIT_CODE."
+            echo "Attempting to run without -d to see logs directly..."
+            docker compose --env-file docker-compose.env up
+            exit 1
+          fi
+          echo "Docker Compose services started in detached mode."
+          
+          echo "Verifying running containers..."
+          docker ps -a # Show all containers, even stopped ones
+          docker logs $(docker ps -q) # Get logs from currently running containers (if any)
+          
+          echo "Deployment complete."
+        EOF
