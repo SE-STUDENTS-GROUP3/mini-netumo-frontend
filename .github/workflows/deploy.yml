@@ -11,47 +11,61 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Start SSH agent
-      uses: webfactory/ssh-agent@v0.5.3
-      with:
-        ssh-private-key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+      - name: Start SSH agent
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
 
-    - name: Deploy to EC2 via SSH with full cleanup
-      run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
-          echo "Changing to app directory..."
-          cd /home/ubuntu/mini-netumo-frontend
+      - name: Deploy to EC2 via SSH with full cleanup
+        run: |
+          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
+            set -e
 
-          echo "Cleaning working directory..."
-          git reset --hard
-          git clean -fd
+            echo "Changing to app directory..."
+            cd /home/ubuntu/mini-netumo-frontend
 
-          echo "Pulling latest changes..."
-          git pull origin develop
+            echo "Cleaning working directory..."
+            git reset --hard
+            git clean -fd
 
-          echo "Stopping all containers..."
-          docker stop $(docker ps -aq) || true
+            echo "Pulling latest changes..."
+            git pull origin develop
 
-          echo "Removing all containers..."
-          docker rm $(docker ps -aq) || true
+            echo "Stopping all containers..."
+            docker stop \$(docker ps -aq) || true
 
-          echo "Removing all images..."
-          docker rmi -f $(docker images -aq) || true
+            echo "Removing all containers..."
+            docker rm \$(docker ps -aq) || true
 
-          echo "Removing all volumes..."
-          docker volume rm $(docker volume ls -q) || true
+            echo "Removing all images..."
+            docker rmi -f \$(docker images -aq) || true
 
-          echo "Pruning system (remove dangling images, containers, volumes)..."
-          docker system prune -a --volumes -f || true
+            echo "Removing all volumes..."
+            docker volume rm \$(docker volume ls -q) || true
 
-          echo "Building fresh containers..."
-          docker compose --env-file docker-compose.env build --no-cache
+            echo "Pruning system..."
+            docker system prune -a --volumes -f || true
 
-          echo "Starting services..."
-          docker compose --env-file docker-compose.env up -d
+            echo "Building fresh containers..."
+            docker compose --env-file docker-compose.env build --no-cache
 
-          echo "Deployment complete."
-        EOF
+            echo "Starting services..."
+            docker compose --env-file docker-compose.env up -d
+
+            echo "Containers status:"
+            docker ps -a
+
+            echo "Backend logs:"
+            docker logs backend || echo "No backend container logs."
+
+            echo "Frontend logs:"
+            docker logs frontend1 || echo "No frontend1 container logs."
+
+            echo "NGINX logs:"
+            docker logs nginx || echo "No nginx container logs."
+
+            echo "Deployment complete."
+          EOF
