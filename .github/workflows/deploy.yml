@@ -1,72 +1,57 @@
 name: Deploy Docker Compose to EC2
+
 on:
   push:
     branches:
       - develop
+
 jobs:
   deploy:
     name: Deploy to EC2
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    - name: Start SSH agent
-      uses: webfactory/ssh-agent@v0.5.3
-      with:
-        ssh-private-key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
-    - name: Deploy to EC2 via SSH with full cleanup
-      run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
-          echo "Changing to app directory..."
-          cd /home/ubuntu/mini-netumo-frontend || { echo "Failed to change directory"; exit 1; }
-          
-          echo "Cleaning working directory..."
-          git reset --hard || { echo "git reset failed"; exit 1; }
-          git clean -fd || { echo "git clean failed"; exit 1; }
-          
-          echo "Pulling latest changes..."
-          git pull origin develop || { echo "git pull failed"; exit 1; }
-          
-          # Check for docker-compose.env existence
-          echo "Checking for docker-compose.env file..."
-          ls -la docker-compose.env || { echo "docker-compose.env not found!"; exit 1; }
-          
-          echo "Stopping all containers..."
-          docker stop $(docker ps -aq) || true
-          echo "Removing all containers..."
-          docker rm $(docker ps -aq) || true
-          echo "Removing all images..."
-          docker rmi -f $(docker images -aq) || true
-          echo "Removing all volumes..."
-          docker volume rm $(docker volume ls -q) || true
-          echo "Pruning system (remove dangling images, containers, volumes)..."
-          docker system prune -a --volumes -f || true
-          
-          echo "Building fresh containers..."
-          # Capture build output and check exit code
-          docker compose --env-file docker-compose.env build --no-cache
-          BUILD_EXIT_CODE=$?
-          if [ $BUILD_EXIT_CODE -ne 0 ]; then
-            echo "Docker Compose build failed with exit code $BUILD_EXIT_CODE."
-            exit 1
-          fi
-          echo "Docker Compose build completed successfully."
-          
-          echo "Starting services..."
-          # Capture up output and check exit code
-          docker compose --env-file docker-compose.env up -d
-          UP_EXIT_CODE=$?
-          if [ $UP_EXIT_CODE -ne 0 ]; then
-            echo "Docker Compose up -d failed with exit code $UP_EXIT_CODE."
-            echo "Attempting to run without -d to see logs directly..."
-            docker compose --env-file docker-compose.env up
-            exit 1
-          fi
-          echo "Docker Compose services started in detached mode."
-          
-          echo "Verifying running containers..."
-          docker ps -a # Show all containers, even stopped ones
-          docker logs $(docker ps -q) # Get logs from currently running containers (if any)
-          
-          echo "Deployment complete."
-        EOF
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Start SSH agent
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
+
+      - name: Deploy to EC2 via SSH with full cleanup
+        run: |
+          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
+            echo "Changing to app directory..."
+            cd /home/ubuntu/mini-netumo-frontend
+
+            echo "Cleaning working directory..."
+            git reset --hard
+            git clean -fd
+
+            echo "Pulling latest changes..."
+            git pull origin develop
+
+            echo "Stopping all containers..."
+            docker-compose down || true
+
+            echo "Removing all containers..."
+            docker rm -f $(docker ps -aq) || true
+
+            echo "Removing all images..."
+            docker rmi -f $(docker images -aq) || true
+
+            echo "Removing all volumes..."
+            docker volume rm $(docker volume ls -q) || true
+
+            echo "Pruning system (remove dangling images, containers, volumes)..."
+            docker system prune -a --volumes -f || true
+
+            echo "Building fresh containers..."
+            docker-compose --env-file docker-compose.env build --no-cache
+
+            echo "Starting services..."
+            docker-compose --env-file docker-compose.env up -d
+
+            echo "Deployment complete."
+          EOF
